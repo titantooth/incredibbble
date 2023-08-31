@@ -1,3 +1,4 @@
+import { getUserQuery } from "@/graphql";
 import { GraphQLClient } from "graphql-request";
 
 
@@ -15,3 +16,7 @@ const makeGraphQLRequest = async (query: string, variables = {}) => {
     throw err;
   }
 };
+
+export const getUser = (email : string) => {
+  return makeGraphQLRequest(getUserQuery, {email})
+}
